@@ -1,14 +1,17 @@
 language: clojure
 jdk:
-  - oraclejdk8
-  - oraclejdk9
+- oraclejdk8
+- oraclejdk9
 matrix:
   include:
-    - jdk: openjdk10
-      before_install:
-        - rm "${JAVA_HOME}/lib/security/cacerts"
-        - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
-    - jdk: openjdk11
-      before_install:
-        - rm "${JAVA_HOME}/lib/security/cacerts"
-        - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+  - jdk: openjdk10
+    before_install:
+    - rm "${JAVA_HOME}/lib/security/cacerts"
+    - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+  - jdk: openjdk11
+    before_install:
+    - rm "${JAVA_HOME}/lib/security/cacerts"
+    - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+notifications:
+  slack:
+    secure: SKjz/SAE/9cQwwpMYVlwu8Ou1P1ClyaKkrdY0ru2EG1tALMUJwo0SqCpnJoWx2VnvDQLqj5NIyUaTeXXfi/zn51CKZTO2SyvRrJEoWWdKatCsVuc0qiSKtNPLn5TLVo+mTqm4lsZNAPPiqewv6Oyp+b3Xk39WS5en5FQ1gTbJjRV5Xdo7U2Fgu3W8vSh6Uh/jyuPdFhDxNM9EzBL+a8aOvyKeQLl0IwFPj/SIlQLSI5KLdEJFfwEC1DsKLs6+z0Env5WcsTbn+rpXfNLm+TP7EFKnfcMtiKZjQJAhU5PrFg7KLX8eivEqsENgW2Xo9/ze1iHMRF6IfwalDnLCOjhSRq6R1U5eNCFXwAlxI6rogkFCg+BemM7O+uObs5GHswgDTZ97kgqL1xQ/Rqm9WkgDCLdm0TezHqkcDJU1OXJsjhvETS2Yx3zntFSWLK73AY8RUoECuQJ1We2agMImA121hLyMByGSgASUKg+Lil6VyLjTbvt/qZNxS3Ov9oa1uZQDDcMuQ9S90+6Uf7zpnYeW/6Kx9rHO4Paur+aIeedxJiW+KQfEgqzeqAOrHhbsj3RqpHTP1qWJ7UCLOY+0jluFM9zqB2q5BPwE7OUD4FCtbyJf/5UZXXT3YyxaRyJWOgZLpcTHwwFuV3jjnz936EUZ8bY9ifldtv8nsQ/I0tx2tQ=
