@@ -118,20 +118,42 @@ in the form when using react-jsonschema-form.
 
 ```clojure
 (defn optional-maps-to-arrays-of-0-or-1-items [schema]
-    (when (and (instance? schema.core.Maybe schema) (map? (:schema schema)))
-        {:left        [(s/optional (:schema s) "")]
-         :left->right (fn [values] (first values))
-         :right->left (fn [value] (filterv some? [value]))
-         :right       schema}))
-         
+  (when (and (instance? schema.core.Maybe schema) (map? (:schema schema)))
+    {:left        [(s/optional (:schema schema) "")]
+     :left->right (fn [values] (first values))
+     :right->left (fn [value] (filterv some? [value]))
+     :right       schema}))
 
-(s/defschema Person 
- {:firstName              s/Str
-  :lastName               s/Str
-  (s/optional-key Friend) (s/maybe Person)}})
-     
+(s/defschema Person
+  {:firstName              s/Str
+   :lastName               s/Str
+   (s/optional-key :friend) (s/maybe Person)})
      
 (def json-schema (sf/prismatic->json-schema Person {:bijections [optional-maps-to-arrays-of-0-or-1-items]}))
+
+#_{:type "object",
+   :title "Person",
+   :properties
+   {:firstName {:type "string", :title "First Name"},
+    :lastName {:type "string", :title "Last Name"},
+    :friend
+    {:type "array",
+     :items
+     {:type "object",
+      :title "Person",
+      :properties
+      {:firstName {:type "string", :title "First Name"},
+       :lastName {:type "string", :title "Last Name"},
+       :age {:type "number", :title "Age"}},
+      :additionalProperties false,
+      :required [:firstName :lastName :age]},
+     :maxItems 1,
+     :minItems 0,
+     :title "Friend"}},
+   :additionalProperties false,
+   :required [:firstName :lastName]}
+
+; https://jsfiddle.net/e7prdzkq/2/
 
 ```
 
