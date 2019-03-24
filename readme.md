@@ -15,7 +15,7 @@ ___
 
 ### installation 
 
-``` 
+```clojure
 [com.vodori/schema-forms "0.1.0"]
 ```
 
@@ -23,7 +23,7 @@ ___
 
 ### usage 
 
-```
+```clojure
 (require '[schema.core :as s])
 (require '[schema-forms.core :as sf])
 
@@ -116,7 +116,7 @@ converts any prismatic schema or data of the form `(s/maybe {:firstName s/Str})`
 in the form when using react-jsonschema-form.
 
 
-``` 
+```clojure
 (defn optional-maps-to-arrays-of-0-or-1-items [schema]
     (when (and (instance? schema.core.Maybe schema) (map? (:schema schema)))
         {:left        [(s/optional (:schema s) "")]
