@@ -62,8 +62,8 @@ ___
   {:state (s/enum "ALABAMA" "ALASKA")})
 
 (sam/extend-schema CanadianLocation
-  Address ["CANADA"]
-  {:province (s/enum "ALBERTA" "BRITISH_COLUMBIA" ...)})
+  Location ["CANADA"]
+  {:province (s/enum "ALBERTA" "BRITISH_COLUMBIA")})
   
 (def json-schema (sf/prismatic->json-schema Location))
 
