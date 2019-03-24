@@ -119,7 +119,7 @@ in the form when using react-jsonschema-form.
 ```clojure
 (defn optional-maps-to-arrays-of-0-or-1-items [schema]
     (when (and (instance? schema.core.Maybe schema) (map? (:schema schema)))
-        {:left        [(s/optional (:schema s) "")]
+        {:left        [(s/optional (:schema schema) "")]
          :left->right (fn [values] (first values))
          :right->left (fn [value] (filterv some? [value]))
          :right       schema}))
