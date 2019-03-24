@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/vodori/missing.svg?branch=develop)](https://travis-ci.org/vodori/missing) [![Maven metadata URL](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/vodori/missing/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.vodori/missing)
+[![Build Status](https://travis-ci.org/vodori/schema-forms.svg?branch=develop)](https://travis-ci.org/vodori/schema-forms) [![Maven metadata URL](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/vodori/schema-forms/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.vodori/schema-forms)
 
 ### schema-forms
 
