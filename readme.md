@@ -49,6 +49,43 @@ ___
 ; https://jsfiddle.net/e7prdzkq/
 
 
+; recursive schemas
+
+(s/defschema RecursivePerson
+  {:firstName s/Str
+   :friends   [(s/recursive #'RecursivePerson)]})
+   
+(def json-schema (sf/prismatic->json-schema RecursivePerson))
+
+#_{:type "object",
+   :title "Recursive Person",
+   :properties
+   {:firstName {:type "string", :title "First Name"},
+    :friends
+    {:type "array",
+     :items
+     {"$ref" "#/definitions/schema-forms.core-test.RecursivePerson"},
+     :minItems 0,
+     :title "Friends"}},
+   :additionalProperties false,
+   :required [:firstName :friends],
+   :definitions
+   {"schema-forms.core-test.RecursivePerson"
+    {:type "object",
+     :title "Recursive Person",
+     :properties
+     {:firstName {:type "string", :title "First Name"},
+      :friends
+      {:type "array",
+       :items
+       {"$ref" "#/definitions/schema-forms.core-test.RecursivePerson"},
+       :minItems 0,
+       :title "Friends"}},
+     :additionalProperties false,
+     :required [:firstName :friends]}}}
+
+
+
 ; abstract maps
 
 (require '[schema.experimental.abstract-map :as sam])
@@ -127,9 +164,12 @@ in the form when using react-jsonschema-form.
 (s/defschema Person
   {:firstName              s/Str
    :lastName               s/Str
-   (s/optional-key :friend) (s/maybe Person)})
+   (s/optional-key :friend) (s/maybe {:firstName s/Str
+                                      :lastName  s/Str 
+                                      :age       s/Num})})
      
-(def json-schema (sf/prismatic->json-schema Person {:bijections [optional-maps-to-arrays-of-0-or-1-items]}))
+(def options {:bijections [optional-maps-to-arrays-of-0-or-1-items]})
+(def json-schema (sf/prismatic->json-schema Person options))
 
 #_{:type "object",
    :title "Person",

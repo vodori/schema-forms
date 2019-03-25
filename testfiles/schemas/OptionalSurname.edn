@@ -1,0 +1,7 @@
+{:type "object",
+ :properties
+ {:firstName {:type "string", :title "First Name"},
+  :lastName {:type "string", :title "Last Name"}},
+ :additionalProperties false,
+ :required [:firstName],
+ :title "OptionalSurname"}

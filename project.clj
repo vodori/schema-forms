@@ -27,4 +27,8 @@
   :dependencies
   [[org.clojure/clojure "1.10.0"]
    [prismatic/schema "1.1.10"]
-   [com.gfredericks/schema-bijections "0.1.3"]])
+   [com.gfredericks/schema-bijections "0.1.3"]]
+
+  :profiles
+  {:test {:dependencies [[cheshire "5.8.1" :scope "test"]]
+          :resource-paths ["testfiles"]}})

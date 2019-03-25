@@ -1,0 +1,26 @@
+{:type "object",
+ :title "Recursive Person",
+ :properties
+ {:firstName {:type "string", :title "First Name"},
+  :friends
+  {:type "array",
+   :items
+   {"$ref" "#/definitions/schema-forms.core-test.RecursivePerson"},
+   :minItems 0,
+   :title "Friends"}},
+ :additionalProperties false,
+ :required [:firstName :friends],
+ :definitions
+ {"schema-forms.core-test.RecursivePerson"
+  {:type "object",
+   :title "Recursive Person",
+   :properties
+   {:firstName {:type "string", :title "First Name"},
+    :friends
+    {:type "array",
+     :items
+     {"$ref" "#/definitions/schema-forms.core-test.RecursivePerson"},
+     :minItems 0,
+     :title "Friends"}},
+   :additionalProperties false,
+   :required [:firstName :friends]}}}

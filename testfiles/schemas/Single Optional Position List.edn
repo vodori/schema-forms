@@ -1,0 +1,18 @@
+{:type "object",
+ :properties
+ {:favoriteDogs
+  {:type "array",
+   :items
+   {:type "object",
+    :properties
+    {:name {:type "string", :title "Name"},
+     :breed
+     {:type "string", :enum #{"Husky" "Collie"}, :title "Breed"}},
+    :additionalProperties false,
+    :required [:name :breed]},
+   :maxItems 1,
+   :minItems 0,
+   :title "Favorite Dogs"}},
+ :additionalProperties false,
+ :required [:favoriteDogs],
+ :title "Single Optional Position List"}
