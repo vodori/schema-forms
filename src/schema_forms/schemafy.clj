@@ -13,21 +13,18 @@
 (defmethod bottom-out Number [_] {:type "number"})
 (defmethod bottom-out Integer [_] {:type "integer"})
 (defmethod bottom-out Boolean [_] {:type "boolean"})
-(defmethod bottom-out Map [_] {:type "object"})
-(defmethod bottom-out List [_] {:type "array"})
-(defmethod bottom-out Set [_] {:type "array"})
 (defmethod bottom-out Keyword [_] {:type "string"})
 (defmethod bottom-out Pattern [_] {:type "string"})
 (defmethod bottom-out Symbol [_] {:type "string"})
-(defmethod bottom-out (class boolean?) [_] {:type "boolean"})
-(defmethod bottom-out (class number?) [_] {:type "number"})
-(defmethod bottom-out (class integer?) [_] {:type "integer"})
-(defmethod bottom-out (class string?) [_] {:type "string"})
-(defmethod bottom-out (class keyword?) [_] {:type "string"})
-(defmethod bottom-out (class symbol?) [_] {:type "string"})
+
+(defmethod bottom-out (class boolean?) [_] (bottom-out s/Bool))
+(defmethod bottom-out (class number?) [_] (bottom-out s/Num))
+(defmethod bottom-out (class integer?) [_] (bottom-out s/Int))
+(defmethod bottom-out (class string?) [_] (bottom-out s/Str))
+(defmethod bottom-out (class keyword?) [_] (bottom-out s/Keyword))
+(defmethod bottom-out (class symbol?) [_] (bottom-out s/Symbol))
 
 (prefer-method bottom-out Integer Number)
-
 (prefer-method bottom-out (class integer?) (class number?))
 
 (defprotocol JsonSchemafy
