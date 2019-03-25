@@ -227,20 +227,20 @@ ___
 
 __Q__: Is the library compatible with Clojure(Script)? 
 
-__Q__: Not yet. This library doesn't need anything jvm specific but the bijection
+__A__: Not yet. This library doesn't need anything jvm specific but the bijection
 dependency would also need to be converted to Clojure(Script).
 
 
 __Q__: Can I use this if I don't use react-jsonschema-form? 
 
-__Q__: Yes, please give it a try but your mileage may vary. In our experience consumers of
+__A__: Yes, please give it a try but your mileage may vary. In our experience consumers of
 json-schema vary in their interpretation of the more advanced polymorphic dispatch features.
 
 
 __Q__: What about the ui-schema component of react-jsonschema-form? How can I control the rendering order
 and set additional display options?
 
-__Q__: This needs some hammock time. A lot of that information just isn't present in a prismatic
+__A__: This needs some hammock time. A lot of that information just isn't present in a prismatic
 schema by default and part of the original goal of this conversion was to leverage prismatic schemas
 as-is.
 
