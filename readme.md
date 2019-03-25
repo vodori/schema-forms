@@ -84,6 +84,7 @@ ___
      :additionalProperties false,
      :required [:firstName :friends]}}}
 
+; https://jsfiddle.net/zy4mogx5/
 
 
 ; abstract maps
