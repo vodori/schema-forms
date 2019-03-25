@@ -36,7 +36,27 @@
 
 
 (deftest prismatic-data->json-schema-data-test
-  )
+  (testing "optional structure bijection"
+    (let [schema   {:options (s/maybe {:enabled s/Bool})}
+          original {:options {:enabled true}}
+          expected {:options [{:enabled true}]}]
+      (is (= expected (prismatic-data->json-schema-data schema original)))))
+
+  (testing "anything schema bijection"
+    (let [schema   {:configuration s/Any}
+          original {:configuration ["Test"]}
+          expected {:configuration {:value ["Test"], :kind :STRING_ARRAY}}]
+      (is (= expected (prismatic-data->json-schema-data schema original))))))
 
 (deftest json-schema-data->prismatic-data-test
-  )
+  (testing "optional structure bijection"
+    (let [schema   {:options (s/maybe {:enabled s/Bool})}
+          original {:options [{:enabled true}]}
+          expected {:options {:enabled true}}]
+      (is (= expected (json-schema-data->prismatic-data schema original)))))
+
+  (testing "anything schema bijection"
+    (let [schema   {:configuration s/Any}
+          original {:configuration {:value ["Test"], :kind :STRING_ARRAY}}
+          expected {:configuration ["Test"]}]
+      (is (= expected (json-schema-data->prismatic-data schema original))))))

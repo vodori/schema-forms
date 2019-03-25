@@ -7,9 +7,9 @@ compatible for use with [react-jsonschema-form](https://github.com/mozilla-servi
 
 ### origin
 
-We use this functionality to auto-generate an admin UI from schemas that define the configurable aspects 
-of our applications. The conversion from prismatic schema to json-schema is likely the most widely useful 
-piece of this work but in the future we may open source the admin interface as well.
+We use this functionality to generate an admin UI from schemas that define configurable data 
+in our applications. The conversion from prismatic schema to json-schema is likely the most
+useful piece of this work but in the future we may open source the admin interface as well.
 
 ___
 
