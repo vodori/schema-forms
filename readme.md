@@ -199,27 +199,48 @@ in the form when using react-jsonschema-form.
 ```
 
 
+Applying bijections means that the data going in/out of the form needs to be in a slightly
+different shape in order to be compatible with the transformed schema. This library provides
+functions you can invoke in order to transform your data in either direction.
+
+```clojure
+(let [schema     {:options (s/maybe {:enabled s/Bool})}
+      original   {:options {:enabled true}}
+      bijections [optional-maps-to-arrays-of-0-or-1-items]]
+  (prismatic-data->json-schema-data schema original bijections))
+
+#_{:options [{:enabled true}]}
+
+(let [schema     {:options (s/maybe {:enabled s/Bool})}
+      from-form  {:options [{:enabled true}]}
+      bijections [optional-maps-to-arrays-of-0-or-1-items]]
+  (json-schema-data->prismatic-data schema from-form bijections))
+
+#_{:options {:enabled true}}
+
+```
+
 ___
 
 
 ### faq
 
-_Q_: Is the library compatible with Clojure(Script)? 
+__Q__: Is the library compatible with Clojure(Script)? 
 
-_A_: Not yet. This library doesn't need anything jvm specific but the bijection
+__Q__: Not yet. This library doesn't need anything jvm specific but the bijection
 dependency would also need to be converted to Clojure(Script).
 
 
-_Q_: Can I use this if I don't use react-jsonschema-form? 
+__Q__: Can I use this if I don't use react-jsonschema-form? 
 
-_A_: Yes, please give it a try but your mileage may vary. In our experience consumers of
+__Q__: Yes, please give it a try but your mileage may vary. In our experience consumers of
 json-schema vary in their interpretation of the more advanced polymorphic dispatch features.
 
 
-_Q_: What about the ui-schema component of react-jsonschema-form? How can I control the rendering order
+__Q__: What about the ui-schema component of react-jsonschema-form? How can I control the rendering order
 and set additional display options?
 
-_A_: This needs some hammock time. A lot of that information just isn't present in a prismatic
+__Q__: This needs some hammock time. A lot of that information just isn't present in a prismatic
 schema by default and part of the original goal of this conversion was to leverage prismatic schemas
 as-is.
 
