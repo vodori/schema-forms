@@ -3,7 +3,7 @@
 ### schema-forms
 
 A Clojure library providing extensive conversions from prismatic schemas into json-schemas that are 
-compatible for use with [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form).
+compatible for use with Mozilla's [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form).
 
 ### origin
 
