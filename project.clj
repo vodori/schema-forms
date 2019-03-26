@@ -18,6 +18,11 @@
     [:name "Paul Rutledge"]
     [:url "https://github.com/rutledgepaulv"]
     [:email "paul.rutledge@vodori.com"]
+    [:timezone "-5"]]
+   [:developer
+    [:name "Julia Cicale"]
+    [:url "https://github.com/jcicale"]
+    [:email "julia.cicale@vodori.com"]
     [:timezone "-5"]]]
 
   :deploy-repositories
