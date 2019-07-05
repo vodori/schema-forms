@@ -1,4 +1,4 @@
-(defproject com.vodori/schema-forms "0.1.2-SNAPSHOT"
+(defproject com.vodori/schema-forms "0.1.2"
 
   :description
   "A library for converting prismatic schemas into json-schemas for building form fields."
