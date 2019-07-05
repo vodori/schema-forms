@@ -25,8 +25,8 @@
    "snapshots" {:url "https://oss.sonatype.org/content/repositories/snapshots/" :creds :gpg}}
 
   :dependencies
-  [[org.clojure/clojure "1.10.0"]
-   [prismatic/schema "1.1.10"]
+  [[org.clojure/clojure "1.10.1"]
+   [prismatic/schema "1.1.11"]
    [com.gfredericks/schema-bijections "0.1.3"]]
 
   :profiles

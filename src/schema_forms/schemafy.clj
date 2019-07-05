@@ -17,12 +17,12 @@
 (defmethod bottom-out Pattern [_] {:type "string"})
 (defmethod bottom-out Symbol [_] {:type "string"})
 
-(defmethod bottom-out (class boolean?) [_] (bottom-out s/Bool))
-(defmethod bottom-out (class number?) [_] (bottom-out s/Num))
-(defmethod bottom-out (class integer?) [_] (bottom-out s/Int))
-(defmethod bottom-out (class string?) [_] (bottom-out s/Str))
-(defmethod bottom-out (class keyword?) [_] (bottom-out s/Keyword))
-(defmethod bottom-out (class symbol?) [_] (bottom-out s/Symbol))
+(defmethod bottom-out (class boolean?) [_] (bottom-out Boolean))
+(defmethod bottom-out (class number?) [_] (bottom-out Number))
+(defmethod bottom-out (class integer?) [_] (bottom-out Integer))
+(defmethod bottom-out (class string?) [_] (bottom-out String))
+(defmethod bottom-out (class keyword?) [_] (bottom-out Keyword))
+(defmethod bottom-out (class symbol?) [_] (bottom-out Symbol))
 
 (prefer-method bottom-out Integer Number)
 (prefer-method bottom-out (class integer?) (class number?))
