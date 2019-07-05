@@ -49,11 +49,13 @@
 
 (defn title [s]
   (letfn [(norm [s]
-            (some->> s
-              (re-seq #"\w[a-z$]+")
-              (map strings/lower-case)
-              (map strings/capitalize)
-              (strings/join " ")))]
+            (or
+              (some->> s
+                (re-seq #"\w[a-z$]+")
+                (map strings/lower-case)
+                (map strings/capitalize)
+                (strings/join " "))
+              s))]
     (-> (cond
           (instance? IMeta s)
           (some-> s meta :name name)
