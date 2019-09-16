@@ -16,7 +16,7 @@ ___
 ### installation 
 
 ```clojure
-[com.vodori/schema-forms "0.1.1"]
+[com.vodori/schema-forms "0.1.2"]
 ```
 
 ___
